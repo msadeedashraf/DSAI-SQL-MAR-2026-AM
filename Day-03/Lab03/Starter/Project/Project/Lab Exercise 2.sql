@@ -15,7 +15,7 @@ GO
 -- Execute the written statement and compare the results that you got with the desired results shown in the file Lab Exercise 2 - Task 1 Result.txt.
 ---------------------------------------------------------------------
 
-
+select country from Sales.Customers
 
 
 ---------------------------------------------------------------------
@@ -29,9 +29,14 @@ GO
 ---------------------------------------------------------------------
 
 
+select country from Sales.Customers
+
+select distinct country from Sales.Customers
 
 
+select city from hr.Employees
 
+select distinct city from hr.Employees
 
 ---------------------------------------------------------------------
 -- Under which circumstances do the following queries against the Sales.Customers table return the same result?
@@ -42,5 +47,7 @@ GO
 SELECT city, region 
 FROM Sales.Customers;
 
-SELECT DISTINCT city, region 
+SELECT distinct  region, city 
 FROM Sales.Customers;
+
+

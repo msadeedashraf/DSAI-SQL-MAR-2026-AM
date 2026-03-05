@@ -6,6 +6,9 @@
 
 USE TSQL;
 GO
+select C.contactname, c.country from sales.Customers as C
+
+select distinct C.contactname, c.country from sales.Customers as C
 
 ---------------------------------------------------------------------
 -- Task 1
@@ -15,10 +18,51 @@ GO
 -- Execute the written statement and compare the result that you got with the recommended result shown in the file Lab Exercise 3 - Task 1 Result.txt.
 ---------------------------------------------------------------------
 
+select * from Sales.Customers as C
+
+select 
+	contactname as Person, 
+	contacttitle as "Role", 
+	city , 
+	country, 
+	phone as cell 
+from Sales.Customers
+
+select e.firstname , e.lastname, e.city, e.hiredate from hr.Employees as e
+
+select 
+	e.firstname + ' ' +  	e.lastname as "Full Name", 
+	e.city, 
+	e.hiredate 
+from hr.Employees as e
+
+
+select 
+UPPER(firstname) ,
+lower(lastname),
+	e.firstname + ' ' +  	e.lastname as "Full Name", 
+	e.city, 
+	e.hiredate 
+from hr.Employees as e
+
+
+select 
+	e.firstname + ' ' +  	e.lastname [Full Name], 
+	e.city, 
+	e.hiredate 
+from hr.Employees e
+
+
+
+select * from Stats.Scores
+
+select  from Stats.Scores 
 
 
 
 ---------------------------------------------------------------------
+
+
 -- Task 2
 -- 
 -- Write a SELECT statement to return the contactname, contacttitle, and companyname columns from the Sales.Customers table. Assign these columns with the aliases Name, Title, and Company Name, respectively, in order to return more human-friendly column titles for reporting purposes.
@@ -26,7 +70,9 @@ GO
 -- Execute the written statement and compare the results that you got with the desired results shown in the file Lab Exercise 3 - Task 2 Result.txt. Notice specifically the titles of the columns in the desired output.
 ---------------------------------------------------------------------
 
-
+select c.contactname as "Contact Name", c.contacttitle as " Title", c.companyname as "Company Name"
+ 
+from Sales.Customers as c
 
 
 ---------------------------------------------------------------------
@@ -37,21 +83,29 @@ GO
 -- Execute the written statement and compare the results that you got with the desired results shown in the file Lab Exercise 3 - Task 3 Result.txt.
 ---------------------------------------------------------------------
 
-
+select * from Production.products
+ 
+select 
+P.productname as "Product Name"
+ 
+from Production.products as P
 
 
 ---------------------------------------------------------------------
 -- Task 4
 -- 
--- A developer has written a query to retrieve two columns (city and region) from the Sales.Customers table. When the query is executed, it returns only one column. Your task is to analyze the query, correct it to return two columns, and explain why the query returned only one column.
+-- A developer has written a query to retrieve two columns (city and region) from the Sales.Customers table. When the query is executed, it returns only one column. 
+--Your task is to analyze the query, correct it to return two columns, 
+--and explain why the query returned only one column.
 --
 -- Execute the query exactly as written inside a query window and observe the result.
 --
 -- Correct the query to return the city and country columns from the Sales.Customers table.
 --
--- Why did the query return only one column? What was the title of the column in the output? What is the best practice when using aliases for columns to avoid such errors?
+-- Why did the query return only one column? What was the title of the column in the output? 
+--What is the best practice when using aliases for columns to avoid such errors?
 ---------------------------------------------------------------------
 
-SELECT city country
+SELECT city ,country
 FROM Sales.Customers;
 

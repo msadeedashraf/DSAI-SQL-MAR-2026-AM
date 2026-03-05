@@ -16,7 +16,9 @@ GO
 
 ---------------------------------------------------------------------
 -- Task 2
--- Enhance the SELECT statement in task 1 by adding a CASE expression that generates a result column named categoryname. The new column should hold the translation of the category ID to its respective category name, based on the mapping table supplied earlier. Use the value “Other” for any category IDs not found in the mapping table.
+-- Enhance the SELECT statement in task 1 by adding a CASE expression that generates a result column named categoryname. 
+--The new column should hold the translation of the category ID to its respective category name,
+--based on the mapping table supplied earlier. Use the value “Other” for any category IDs not found in the mapping table.
 ---------------------------------------------------------------------
 
 

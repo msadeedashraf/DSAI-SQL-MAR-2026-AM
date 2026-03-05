@@ -16,10 +16,10 @@ GO
 --
 -- Take a look at the names of the tables in the Sales schema.
 ---------------------------------------------------------------------
-
-
-
-
+[Sales].[Customers]
+[Sales].[OrderDetails]
+[Sales].[Orders]
+[Sales].[Shippers]
 ---------------------------------------------------------------------
 -- Task 2
 -- 
@@ -29,9 +29,11 @@ GO
 -- Execute the written statement and compare the results that you got with the desired results shown in the file Lab Exercise 1 - Task 2 Result.txt.
 ---------------------------------------------------------------------
 
+select * from [Sales].[Customers]
 
-
-
+select 
+	[custid],[companyname],[contactname],[contacttitle],[address],[city]
+from [Sales].[Customers]
 ---------------------------------------------------------------------
 -- Task 3
 -- 
@@ -43,4 +45,12 @@ GO
 --
 -- What is the number of rows affected by the last query? (Tip: Because you are issuing a SELECT statement against the whole table, the number of rows will be the same as number of rows for the whole Sales.Customer table.)
 ---------------------------------------------------------------------
+
+select 
+	c.contactname, 
+	c.address, 
+	c.postalcode, 
+	c.city, 
+	c.country 
+from Sales.Customers  as C
 
