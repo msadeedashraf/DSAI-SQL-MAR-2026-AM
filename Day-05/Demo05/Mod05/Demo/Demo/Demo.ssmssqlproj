@@ -3,10 +3,10 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="(localdb)\MSSQLLocalDB:SADEED\sadeed">
+        <ConnectionNode Name="localhost\SQLEXPRESS:SADEED\sadeed">
           <Created>2021-08-23T11:23:55.2957599-04:00</Created>
           <Type>SQL</Type>
-          <Server>(localdb)\MSSQLLocalDB</Server>
+          <Server>localhost\SQLEXPRESS</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
           <InitialDB />
@@ -20,26 +20,26 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="11 - Demonstration A.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(localdb)\MSSQLLocalDB:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(localdb)\MSSQLLocalDB</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:localhost\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>localhost\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>11 - Demonstration A.sql</FullPath>
         </FileNode>
         <FileNode Name="21 - Demonstration B.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(localdb)\MSSQLLocalDB:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(localdb)\MSSQLLocalDB</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:localhost\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>localhost\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>21 - Demonstration B.sql</FullPath>
         </FileNode>
         <FileNode Name="31 - Demonstration C.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(localdb)\MSSQLLocalDB:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(localdb)\MSSQLLocalDB</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:localhost\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>localhost\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>31 - Demonstration C.sql</FullPath>
         </FileNode>
         <FileNode Name="41 - Demonstration D.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(localdb)\MSSQLLocalDB:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(localdb)\MSSQLLocalDB</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:localhost\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>localhost\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>41 - Demonstration D.sql</FullPath>
         </FileNode>

@@ -1,4 +1,11 @@
 -- Demonstration B
+use AdventureWorksLT2022
+
+use TSQL
+use AdventureWorks
+
+
+select * from 
 
 -- Step 1: Connect to the AdventureWorksLT database
 -- Prepare the environment by running the following query (without this, all order dates are the same)
@@ -13,6 +20,24 @@ SELECT *
 --SalesOrderID, CustomerID, OrderDate ,MONTH(OrderDate) AS ordermonth
 FROM SalesLT.SalesOrderHeader
 WHERE MONTH(OrderDate) = 6;
+
+sElEcT * FrOm TsQL.hr.EmPloYEES 
+
+'LoNdOn'
+
+SELECT  UPPER(E.FIRSTNAME), LOWER(E.LASTNAME)  FROM TSQL.HR.EMPLOYEES AS E
+
+select  upper(e.firstname), lower(e.lastname)  from tsql.hr.employees as e 
+
+select upper('select  upper(e.firstname), lower(e.lastname)  from tsql.hr.employees as e')
+
+
+
+select * from tsql.hr.Employees	
+where lower(city)  =  lower('london')
+
+select * from tsql.hr.Employees	
+where lastname = 'King'
 
 -- Step 3: Use WHERE to filter results
 -- WHERE clause fails when referencing expression by alias
@@ -35,13 +60,47 @@ WHERE OrderDate < '2013-05-01';
 
 -- Step 6: Use WHERE to filter results
 -- Use of OR to check for multiple search values
-SELECT AddressLine1, CountryRegion , Count(*)
+SELECT AddressLine1, CountryRegion 
 FROM SalesLT.Address
-WHERE CountryRegion = N'United Kingdom' OR CountryRegion = N'Canada'
-group by AddressLine1, CountryRegion
-having count(*) > 1
-order by 2;
+WHERE 
+CountryRegion = N'United Kingdom' OR 
+CountryRegion = N'Canada'
 
+SELECT *
+FROM SalesLT.Address
+
+SELECT CountryRegion , Count(*)
+FROM SalesLT.Address
+group by CountryRegion
+
+SELECT CountryRegion, city , Count(*)
+FROM SalesLT.Address
+group by CountryRegion, city 
+order by 1, 3 desc
+
+SELECT CountryRegion, city , Count(*) as no_of_houses
+FROM SalesLT.Address
+--where CountryRegion = 'United States'
+group by CountryRegion, city 
+order by CountryRegion, city , no_of_houses desc
+--order by 1 , 2,  3 desc
+
+
+SELECT top 1 CountryRegion, city , Count(*) as no_of_houses
+FROM SalesLT.Address
+where CountryRegion = 'United Kingdom'
+group by CountryRegion, city 
+order by no_of_houses desc
+--order by 1 , 2,  3 desc
+
+
+
+SELECT CountryRegion, city , Count(*) as no_of_houses
+FROM SalesLT.Address
+--where CountryRegion = 'United States'
+group by CountryRegion, city 
+order by CountryRegion,  no_of_houses desc
+--order by 1 , 2,  3 desc
 -- Step 7: Use WHERE to filter results
 -- Use IN operator to evaluate from a list
 SELECT  * --AddressLine1, CountryRegion
@@ -65,6 +124,13 @@ WHERE OrderDate >= '20130501' AND OrderDate < '20130601';
 SELECT SalesOrderID, OrderDate
 FROM SalesLT.SalesOrderHeader
 WHERE OrderDate BETWEEN '20130501' AND '20130531';
+
+
+SELECT SalesOrderID, OrderDate
+FROM SalesLT.SalesOrderHeader
+WHERE month(OrderDate ) = 5
+and year(OrderDate) = 2013
+
 
 -- Step 11: Revert the changes made to date columns
 UPDATE SalesLT.SalesOrderHeader 

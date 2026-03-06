@@ -1,5 +1,8 @@
 --  Demonstration D
+use AdventureWorksLT2022
 
+use TSQL
+use AdventureWorks
 -- Step 1: Connect to the AdventureWorksLT database
 
 --  Step 2: Returning results including NULL

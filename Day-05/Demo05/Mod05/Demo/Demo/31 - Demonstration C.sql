@@ -1,4 +1,14 @@
 --  Demonstration C
+use AdventureWorksLT2022
+
+use TSQL
+use AdventureWorks
+
+SELECT @@SERVERNAME AS ServerName,
+       DB_NAME() AS CurrentDatabase,
+       SUSER_SNAME() AS LoginName;
+GO
+
 
 -- Step 1: Connect to the AdventureWorksLT database
 -- Prepare the environment by running the following query (without this, all order dates are the same)
@@ -12,7 +22,7 @@ SET	OrderDate = DATEADD(d,SalesOrderID % 7, '2008-06-01'),
 -- This will ignore rows with duplicate order dates
 -- which would otherwise qualify
 -- compare this to next example
-SELECT TOP (6) 
+SELECT TOP (10) 
 SalesOrderID, CustomerID, OrderDate
 FROM SalesLT.SalesOrderHeader
 --ORDER BY OrderDate ASC;
