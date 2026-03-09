@@ -25,7 +25,7 @@ SET	OrderDate = DATEADD(d,SalesOrderID % 7, '2008-06-01'),
 SELECT TOP (10) 
 SalesOrderID, CustomerID, OrderDate
 FROM SalesLT.SalesOrderHeader
---ORDER BY OrderDate ASC;
+ORDER BY OrderDate desc;
 
 71774	29847	2008-06-04 00:00:00.000
 71776	30072	2008-06-06 00:00:00.000
@@ -59,10 +59,17 @@ FROM SalesLT.SalesOrderHeader;
 -- OFFSET/FETCH examples
 -- First 10 rows only as
 -- alternative to SELECT TOP (10)
-SELECT SalesOrderID, CustomerID, OrderDate
-FROM SalesLT.SalesOrderHeader
-ORDER BY OrderDate ASC, SalesOrderID DESC
-OFFSET 0 ROWS FETCH FIRST 10 ROWS ONLY;
+select top 10 salesorderid, customerid, orderdate
+from saleslt.salesorderheader
+order by orderdate asc, salesorderid desc
+--offset 0 rows fetch first 10 rows only;
+
+
+select salesorderid, customerid, orderdate
+from saleslt.salesorderheader
+order by orderdate asc, salesorderid desc
+offset 0 rows fetch first 10 rows only;
+
 
 -- Step 7: Use OFFSET/FETCH to filter results
 -- Skips first 10 rows, returns rows 11-20

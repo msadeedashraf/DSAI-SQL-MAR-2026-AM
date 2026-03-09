@@ -15,6 +15,23 @@ ORDER BY MiddleName;
 
 --  Step 3: Handling NULLs
 -- This query eliminates NULLs in MiddleName
+
+SELECT MiddleName, Count(*)
+FROM SalesLT.Customer
+group by middlename
+
+
+
+
+---Middle Name hold NULL values
+SELECT CustomerId, Title, FirstName, MiddleName, LastName
+FROM SalesLT.Customer--847
+
+
+SELECT CustomerId, Title, FirstName, MiddleName, LastName
+FROM SalesLT.Customer
+where MiddleName != 'A.'
+
 SELECT CustomerId, Title, FirstName, MiddleName, LastName
 FROM SalesLT.Customer
 WHERE MiddleName <> N'A.'
@@ -36,12 +53,16 @@ FROM SalesLT.Customer
 WHERE MiddleName = NULL
 ORDER BY MiddleName;
 
+' '
+NULL
+
+
 --  Step 6:  Handling NULLs
 -- This query explicitly includes only NULLs
-SELECT CustomerId, Title, FirstName, MiddleName, LastName
-FROM SalesLT.Customer
-WHERE MiddleName IS NULL
-ORDER BY MiddleName;
+select customerid, title, firstname, middlename, lastname
+from saleslt.customer
+where middlename is null
+order by middlename;
 
 --  Step 7:  Handling NULLs
 -- This query explicitly excludes NULLs
