@@ -38,12 +38,17 @@ GO
 -- Execute the written statement and compare the results that you got with the desired results shown in the file 54 - Lab Exercise 1 - Task 3 Result.txt.
 ---------------------------------------------------------------------
 
+--where contactname like 'A%'
 
+select * from tsql.hr.employees 
+where firstname like 'S%'
 
 ---------------------------------------------------------------------
 -- Task 4a
 -- 
--- The IT department has written a T-SQL statement that retrieves the custid and companyname columns from the Sales.Customers table and the orderid column from the Sales.Orders table.
+-- The IT department has written a T-SQL statement that retrieves 
+--the custid and companyname columns from the Sales.Customers table 
+--and the orderid column from the Sales.Orders table.
 --
 -- Execute the query. Notice two things: 
 --  First, the query retrieves all the rows from the Sales.Customers table. 
@@ -53,7 +58,8 @@ GO
 SELECT
 	c.custid, c.companyname, o.orderid
 FROM Sales.Customers AS c
-LEFT OUTER JOIN Sales.Orders AS o ON c.custid = o.custid AND c.city = N'Paris';
+LEFT OUTER JOIN Sales.Orders AS o ON c.custid = o.custid 
+--AND c.city = N'Paris';
 
 ---------------------------------------------------------------------
 -- Task 4b
@@ -71,7 +77,8 @@ LEFT OUTER JOIN Sales.Orders AS o ON c.custid = o.custid AND c.city = N'Paris';
 ---------------------------------------------------------------------
 -- Task 5
 -- 
--- Write a T-SQL statement to retrieve customers from the Sales.Customers table that do not have matching orders in the Sales.Orders table. 
+-- Write a T-SQL statement to retrieve customers from the Sales.Customers table 
+--that do not have matching orders in the Sales.Orders table. 
 -- Matching customers with orders is based on a comparison between the customer’s custid value and the order’s custid value. 
 -- Retrieve the custid and companyname columns from the Sales.Customers table. 
 -- (Hint: Use a T-SQL statement that is similar to the one in the previous task.)
