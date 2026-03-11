@@ -14,6 +14,12 @@ select concat('1','2','3') as result
 
 SELECT '1' + 2 AS result;
 
+SELECT  cast(  '1'   as int) + 2 AS result;
+
+SELECT '1' +  cast(2  as char)   AS result;
+
+SELECT '1' +  cast('-sadeed'  as varchar(10))   AS result;
+
 select 
 	concat(e.firstname ,e.lastname )  as FullName
 from tsql.hr.Employees as e
@@ -38,3 +44,10 @@ select    cast(1 as varchar(5))   + 'abc' as result;
 -- Step 4: Use explicit conversion in a query
 
 SELECT CAST(1 AS VARCHAR(10)) + 'abc' AS result;
+
+
+cast vs parse vs convert
+
+cast(  value/column name/expession as data_type    )
+
+

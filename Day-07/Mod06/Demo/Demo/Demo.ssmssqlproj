@@ -22,8 +22,8 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="11 - Demonstration A.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:localhost\sqlexpress:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>localhost\sqlexpress</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>11 - Demonstration A.sql</FullPath>
         </FileNode>

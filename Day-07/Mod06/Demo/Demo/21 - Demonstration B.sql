@@ -2,6 +2,14 @@
 
 -- Step 1:
 -- Switch the query window to use your copy of the AdventureWorksLT database
+SELECT CustomerId, LastName 
+FROM SalesLT.Customer as C
+where 
+c.LastName = N'miller'
+--c.LastName COLLATE Latin1_General_CS_AS = N'miller'
+
+miller    eMiller
+
 
 -- Step 2: Use collation in a query
 SELECT CustomerId, LastName 
@@ -25,6 +33,10 @@ SELECT CustomerId, FirstName, MiddleName, LastName,
 CONCAT(LastName, N', ' + FirstName, N' ', MiddleName) AS FullName
 FROM SalesLT.Customer;
 
+SELECT CustomerId, FirstName, MiddleName, LastName, 
+CONCAT(LastName, N', ' , FirstName, N' ', MiddleName) AS FullName
+FROM SalesLT.Customer;
+
 -- Step 5: Use concatenation with + (plus) in a query
 SELECT CustomerId, FirstName, MiddleName, LastName, 
 FirstName + N' ' + LastName AS FullName
@@ -40,19 +52,58 @@ FORMAT(@m,'C','de-de') AS de_de_currency;
 -- end FORMAT example
 
 SELECT SUBSTRING('Microsoft SQL Server',11,3) AS Result;
-SELECT LEFT('Microsoft SQL Server',9) AS left_example, RIGHT('Microsoft SQL Server',6) as right_example;
+SELECT 
+		LEFT('Microsoft SQL Server',9) AS left_example, 
+		RIGHT('Microsoft SQL Server',6) as right_example;
 
-SELECT LEN('Microsoft SQL Server     ') AS [LEN];
-SELECT DATALENGTH('Microsoft SQL Server     ') AS [DATALENGTH];
+SELECT LEN('    Microsoft SQL Server     ') AS [LEN];
+SELECT DATALENGTH('    Microsoft SQL Server     ') AS [DATALENGTH];
 
 SELECT CHARINDEX('SQL','Microsoft SQL Server') AS Result;
 
 SELECT REPLACE('Learning about T-SQL string functions','T-SQL','Transact-SQL') AS Result;
 
-SELECT UPPER('Microsoft SQL Server') AS UP, LOWER('Microsoft SQL Server') AS LOW;
+SELECT 
+	UPPER('Microsoft SQL Server') AS UP, 
+	LOWER('Microsoft SQL Server') AS LOW;
+
+select getdate() 
+
+select upper('sadeed')
+
+
+select 
+upper(e.firstname)
+from tsql.hr.Employees as e
+
+
+
+/*Output we are trying to get*/
+--Actuat string ---1236-6565665-5969
+--Output String---*********5969
+
+select REPLICATE( '*',   len('1236-6565665-5969')-4) + right('1236-6565665-5969',4)
+go
+
+declare @credit_card_no varchar(30) = '1236-6565665-5969'
+select REPLICATE( '*',   len(@credit_card_no)-4) + right(@credit_card_no,4)
+go 
+
+select replicate('*',6)
+go 
+select   len('1236-6565665-5969')-4
+go 
+select     right('1236-6565665-5969',4)
+go
+
+
+
 
 -- Step 7: Use the LIKE predicate in a query - the % (percent) character
 SELECT AddressID, CountryRegion
 FROM SalesLT.Address
 WHERE CountryRegion LIKE N'United%'
+order by 2
+
+
 
