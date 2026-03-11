@@ -18,6 +18,18 @@ SELECT DATENAME(weekday,'20150113');
 SELECT DAY('20150113') AS [Day], MONTH('20150113') AS [Month],YEAR('20150113') AS [Year];
 SELECT DATEPART(WEEKDAY,'20150113');
 
+select 
+	day(e.hiredate ) as  [DAY],
+	month(e.hiredate) as [MONTH],
+	year(e.hiredate) as [YEAR]
+from tsql.hr.Employees as e
+
+select e.hiredate,
+DATEDIFF(year, e.hiredate, GETDATE()) as [No. of years]
+from tsql.hr.Employees as e
+
+
+
 	
 -- Step 4: Display various functions which return a date or time from parts
 SELECT DATETIMEFROMPARTS(2012,2,12,8,30,0,0) AS Result; --7 arguments
@@ -37,3 +49,5 @@ SELECT EOMONTH('20150113',2); --return the end of the month two months ahead of 
 -- Step 7: Use ISDATE to check validity of inputs:
 SELECT ISDATE('20150113'); --is valid
 SELECT ISDATE('20120230'); --February doesn't have 30 days
+ --1= True
+ --0 = False
