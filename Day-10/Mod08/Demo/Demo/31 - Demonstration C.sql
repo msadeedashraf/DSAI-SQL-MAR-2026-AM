@@ -19,5 +19,5 @@ FROM Production.Products;
 
 -- Step 5: Select and execute the following query to illustrate
 --the CHOOSE function
-SELECT CHOOSE (3, 'Beverages', 'Condiments', 'Confections') AS choose_result;
+SELECT CHOOSE (1, 'Beverages', 'Condiments', 'Confections') AS choose_result;
 

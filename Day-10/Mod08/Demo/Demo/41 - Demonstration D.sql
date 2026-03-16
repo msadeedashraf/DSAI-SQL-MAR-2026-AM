@@ -5,7 +5,7 @@ GO
 
 -- Step 2: Select and execute the following query to illustrate
 -- The ISNULL function
-SELECT custid, city, ISNULL(region, 'N/A') AS region, country
+SELECT custid, city, region, ISNULL(region, 'N/A') AS region, country
 FROM Sales.Customers;
 
 -- Step 3: Select and execute the following query to illustrate the

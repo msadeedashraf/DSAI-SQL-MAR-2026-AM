@@ -17,6 +17,11 @@ SELECT DB_NAME() AS [Current Database];
 -- Step 3: Select and execute the following query to illustrate
 -- a simple Aggregate function demo without GROUP BY
 -- (GROUP BY will be covered in a later module)
+
+SELECT COUNT(*) AS numorders, SUM(unitprice*qty) AS totalsales
+FROM	Sales.OrderDetails;
+
+
 SELECT COUNT(*) AS numorders, SUM(unitprice) AS totalsales
 FROM	Sales.OrderDetails;
 
