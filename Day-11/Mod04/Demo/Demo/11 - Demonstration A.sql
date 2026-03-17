@@ -87,7 +87,6 @@ where
 C.categoryname = 'Dairy Products'
 
 
---SQL92
 
 
 ---there is only one join
@@ -98,6 +97,13 @@ C.categoryname = 'Dairy Products'
 -- to illustrate ANSI SQL-89 syntax
 -- to join 2 tables
 -- Point out that 830 rows are returned.
+select * from Sales.Customers--91
+
+select * from sales.Orders ---830
+
+select distinct O.custid from sales.Orders as O---89---2 customers no orders
+
+
 SELECT c.companyname, o.orderdate
 FROM Sales.Customers AS c, Sales.Orders AS o
 WHERE c.custid = o.custid;

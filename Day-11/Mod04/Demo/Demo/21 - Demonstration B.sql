@@ -17,15 +17,27 @@ ON c.categoryid = p.categoryid;
 -- Select and execute the following query
 -- to demonstrate a two-table inner composite join.
 -- Point out that there are 27 rows output without a distinct filter
+select distinct city FROM Sales.Customers AS c--91customers--in 69-cities
+
+select distinct city from HR.Employees AS e --10 employees in  6 cities
+
+
+----I can server 27 customers in cities where I have employees as well
 SELECT e.city, e.country
 FROM Sales.Customers AS c
 JOIN HR.Employees AS e 
 ON c.city = e.city AND c.country = e.country;
 
+---27 cutomer with matching in 3 cities only 
+
+
 -- Step 4: Join 2 tables
 -- Select and execute the following query
 -- to demonstrate a two-table inner composite join.
 -- Point out that there are 3 rows output with a distinct filter
+
+---I have cutomers in 3 cities 
+
 SELECT DISTINCT  e.city, e.country
 FROM Sales.Customers AS c
 JOIN HR.Employees AS e 
@@ -55,3 +67,29 @@ JOIN Sales.Orders AS o
 ON c.custid = o.custid
 JOIN Sales.OrderDetails od
 ON o.orderid = od.orderid;
+
+
+select * from Sales.Orders AS o--830
+select * from Sales.OrderDetails od---2155
+select * from Sales.Customers AS c 
+
+
+select * from Sales.Orders AS o
+where o.orderid = 10248
+
+---Invoice total for one oderid 10248
+select sum (unitprice*qty) from Sales.OrderDetails as od
+where od.orderid = 10248
+
+--Total Sales Since in business 
+select sum (unitprice*qty) from Sales.OrderDetails as od
+
+---Every Individual Invoice  total
+select od.orderid,  sum (unitprice*qty) from Sales.OrderDetails as od
+group by od.orderid
+
+select * from 
+select count()
+select distinct 
+
+
