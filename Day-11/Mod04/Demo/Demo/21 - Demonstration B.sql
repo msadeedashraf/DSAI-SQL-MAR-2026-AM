@@ -69,6 +69,8 @@ JOIN Sales.OrderDetails od
 ON o.orderid = od.orderid;
 
 
+
+
 select * from Sales.Orders AS o--830
 select * from Sales.OrderDetails od---2155
 select * from Sales.Customers AS c 

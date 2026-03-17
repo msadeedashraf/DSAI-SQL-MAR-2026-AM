@@ -136,3 +136,11 @@ ON c.custid = o.custid;
 SELECT c.companyname, o.orderdate
 FROM Sales.Customers AS c JOIN Sales.Orders AS o;
 -- ON c.custid = o.custid
+
+
+
+--
+
+SELECT c.companyname, o.orderdate
+FROM Sales.Customers AS c Sales.Orders AS o
+ON c.custid = o.custid;
