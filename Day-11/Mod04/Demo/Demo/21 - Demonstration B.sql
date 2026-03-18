@@ -93,5 +93,30 @@ group by od.orderid
 select * from 
 select count()
 select distinct 
+select * from sales.customers
+
+select * 
+FROM Sales.Customers AS c left outer JOIN Sales.Orders AS o
+on c.custid = o.custid
+WHERE 
+O.orderid IS NULL 
+
+select * 
+FROM sales.Orders AS o left outer join Sales.Customers AS c 
+on c.custid = o.custid
 
 
+
+select * 
+FROM sales.Orders AS o right outer join Sales.Customers AS c 
+on c.custid = o.custid
+
+select * 
+FROM Sales.Customers AS c right outer JOIN Sales.Orders AS o
+on c.custid = o.custid
+
+
+select distinct country from hr.Employees
+select distinct CITY from hr.Employees E
+select * 
+FROM sales.Orders AS o right outer join Sales.Customers AS c 
