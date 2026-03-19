@@ -1,3 +1,11 @@
+## Query and modify data with Transact-SQL
+
+[DP080](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/)
+
+## Transact-SQL Exercises and Demonstrations
+
+[dp-080-Transact-SQL Labs](https://microsoftlearning.github.io/dp-080-Transact-SQL/)
+
 ## MS SQL Server
 [Download](https://www.microsoft.com/en-ca/sql-server/sql-server-downloads)
 or
