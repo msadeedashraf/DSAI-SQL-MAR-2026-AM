@@ -16,7 +16,7 @@ GROUP BY CustomerID;
 SELECT CustomerID, COUNT(*) AS count_orders
 FROM Sales.SalesOrderHeader
 GROUP BY CustomerID
-HAVING COUNT(*) >= 10
+HAVING COUNT(*) <= 10
 
 -- Step 2c: Review the logical order of operations
 -- the column alias for COUNT(*) hasn't been processed yet
@@ -32,7 +32,9 @@ HAVING count_orders >= 10
 -- The following query uses a WHERE clause to filter
 -- orders
 
-SELECT COUNT(*) AS cnt, AVG(OrderQty) AS [avg_qty]
+
+select * FROM Production.Product AS p
+SELECT p.ProductLine, COUNT(*) AS cnt, AVG(OrderQty) AS [avg_qty]
 FROM Production.Product AS p
 JOIN Sales.SalesOrderDetail AS od
 	ON p.productid = od.productid

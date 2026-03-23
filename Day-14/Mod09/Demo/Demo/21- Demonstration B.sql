@@ -40,7 +40,13 @@ GROUP BY SalesPersonID;
 -- Show an aggregate on the column used to group
 SELECT CustomerID, COUNT(*) AS Total_Orders
 FROM Sales.SalesOrderHeader
-GROUP BY CustomerID;
+GROUP BY CustomerID
+having COUNT(*)  > 10
+
+SELECT COUNT(*) AS Total_Orders
+FROM Sales.SalesOrderHeader
+
+
 
 -- Step 4b: Show an aggregate on a column not in GROUP BY list
 SELECT ProductID, MAX(OrderQty) AS largest_order
