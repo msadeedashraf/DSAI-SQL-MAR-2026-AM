@@ -25,10 +25,12 @@ group by city
 having count(*) > 1
 
 
-select   city,Count(*)  
-from tsql.hr.Employees
-group by city
-order by 2 desc 
+5 select   city,Count(*)  
+1 from tsql.hr.Employees
+2 where
+3 group by city
+4 having 
+6 order by 2 desc 
 
 
 select  city,Count(*) 
@@ -48,6 +50,14 @@ select count(*) from hr.dbo.employees
 SELECT SalesOrderID, ProductID, AVG(UnitPrice), MIN(OrderQty), MAX(UnitPriceDiscount)
 FROM Sales.SalesOrderDetail;
 
+
+SELECT  AVG(UnitPrice), MIN(OrderQty), MAX(UnitPriceDiscount)
+FROM Sales.SalesOrderDetail;
+
+SELECT SalesOrderID, ProductID, AVG(UnitPrice), MIN(OrderQty), MAX(UnitPriceDiscount)
+FROM Sales.SalesOrderDetail
+group by SalesOrderID, ProductID
+
 -- Step 2b: Select and execute the following query to show
 -- This will succeed and return the AVG/MIN/MAX of all rows:
 select AVG(UnitPrice), MIN(OrderQty), MAX(UnitPriceDiscount)
@@ -64,6 +74,15 @@ SELECT MIN(OrderDate)AS earliest_order,
 MAX(OrderDate) AS latest_order
 FROM Sales.SalesOrderHeader;
 
+
+select * FROM Sales.SalesOrderHeader as SOH
+where soh.SalesOrderID =43659 
+
+select sod.ProductID,sod.OrderQty ,  sum(LineTotal) from Sales.SalesOrderDetail as SOD
+where sod.SalesOrderID =43659  
+group by sod.ProductID,sod.OrderQty 
+having sum(LineTotal) > 2000  and sum(LineTotal) <= 7000 
+
 -- Step 2e: Select and execute the following query to show
 -- the use of DISTINCT with aggregate functions:
 SELECT YEAR(OrderDate) AS order_year,
@@ -71,6 +90,47 @@ COUNT(CustomerID) as all_customers,
 COUNT(DISTINCT CustomerID) as unique_customers
 FROM Sales.SalesOrderHeader
 GROUP BY YEAR(OrderDate);
+
+select  *  FROM Sales.SalesOrderHeader
+
+---sales for each year
+
+select  year(soh.OrderDate)  ,  count(*) FROM Sales.SalesOrderHeader as soh
+group by year(soh.OrderDate)
+
+
+
+select  year(soh.OrderDate)  ,  sum(soh.SubTotal) FROM Sales.SalesOrderHeader as soh
+group by year(soh.OrderDate)
+
+
+select 
+year(soh.OrderDate),
+    sum(sod.LineTotal)  
+from  Sales.SalesOrderHeader as soh inner join  Sales.SalesOrderDetail as SOD
+on sod.SalesOrderID    = soh.SalesOrderID   
+group by year(soh.OrderDate)
+
+
+
+
+
+select sod.SalesOrderID   , sum(LineTotal) from Sales.SalesOrderDetail as SOD
+group by sod.SalesOrderID   
+
+
+select * from Sales.SalesOrderHeader
+
+select * from Sales.SalesOrderDetail
+
+SELECT YEAR(OrderDate) AS order_year,
+COUNT(*) as all_customers,
+COUNT(CustomerID) as all_customers,
+COUNT(DISTINCT CustomerID) as unique_customers
+FROM Sales.SalesOrderHeader
+GROUP BY YEAR(OrderDate);
+
+
 
 -- Step 2f: Select and execute the following query to show
 -- the impact of NULL on aggregate functions
@@ -104,7 +164,13 @@ SELECT c1, c2
 FROM dbo.t1;
 
 -- Step 3d: Execute this query to compare the behavior of AVG to an aritmetic average (SUM/COUNT)
-SELECT SUM(c2) AS sum_nonnulls, COUNT(*)AS count_all_rows, COUNT(c2)AS count_nonnulls, AVG(c2) AS [avg], (SUM(c2)/COUNT(*))AS arith_avg
+SELECT 
+    SUM(c2) AS sum_nonnulls, 
+    COUNT(*)AS count_all_rows, 
+    COUNT(c2)AS count_nonnulls, 
+    AVG(c2) AS [avg], 
+    --(SUM(c2)/COUNT(*))AS arith_avg
+    avg( ISNULL(c2,0))
 FROM dbo.t1;
 
 -- Step 3e: Clean up the created table
