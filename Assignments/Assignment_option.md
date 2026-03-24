@@ -4,6 +4,10 @@ _Based on: https://learn.microsoft.com/en-us/training/paths/get-started-querying
 
 This document contains 5 real-world, case-study-based questions that help students apply concepts learned in the DP-080 course. These questions test and reinforce understanding of SELECT queries, filtering, joins, grouping, sorting, and aggregations using realistic business data scenarios.
 
+
+
+
+
 ---
 
 ## 🗃️ Tables Used
@@ -51,6 +55,87 @@ This document contains 5 real-world, case-study-based questions that help studen
 | 1005     | 504        | 3        |
 
 ---
+
+
+```
+CREATE DATABASE AssignmentDB;
+GO
+
+USE AssignmentDB;
+GO
+
+-- Customers
+CREATE TABLE Customers (
+    customer_id INT PRIMARY KEY,
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50),
+    country NVARCHAR(50),
+    email NVARCHAR(100)
+);
+
+-- Orders
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10,2),
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
+);
+
+-- Products
+CREATE TABLE Products (
+    product_id INT PRIMARY KEY,
+    product_name NVARCHAR(100),
+    category NVARCHAR(50),
+    unit_price DECIMAL(10,2)
+);
+
+-- OrderDetails
+CREATE TABLE OrderDetails (
+    order_id INT,
+    product_id INT,
+    quantity INT,
+    PRIMARY KEY (order_id, product_id),
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+
+
+INSERT INTO Customers (customer_id, first_name, last_name, country, email)
+VALUES
+(1, 'Alice', 'Smith', 'USA', 'alice@contoso.com'),
+(2, 'Bob', 'Lee', 'Canada', 'bob@contoso.com'),
+(3, 'Carla', 'Gonzalez', 'Mexico', 'carla@contoso.com'),
+(4, 'Daniel', 'Brown', 'USA', 'daniel@contoso.com');
+
+INSERT INTO Orders (order_id, customer_id, order_date, total_amount)
+VALUES
+(1001, 1, '2023-01-15', 250.00),
+(1002, 2, '2023-02-10', 480.00),
+(1003, 1, '2023-03-22', 130.00),
+(1004, 3, '2023-01-20', 90.00),
+(1005, 4, '2023-02-28', 320.00);
+
+
+INSERT INTO Products (product_id, product_name, category, unit_price)
+VALUES
+(501, 'Wireless Mouse', 'Electronics', 25.00),
+(502, 'HDMI Cable', 'Electronics', 10.00),
+(503, 'Coffee Mug', 'Kitchen', 12.00),
+(504, 'Desk Lamp', 'Office', 45.00);
+
+INSERT INTO OrderDetails (order_id, product_id, quantity)
+VALUES
+(1001, 501, 2),
+(1001, 503, 4),
+(1002, 504, 5),
+(1003, 502, 3),
+(1004, 503, 2),
+(1005, 501, 1),
+(1005, 504, 3);
+
+
+```
 
 ## 🧠 Case Study Questions
 
