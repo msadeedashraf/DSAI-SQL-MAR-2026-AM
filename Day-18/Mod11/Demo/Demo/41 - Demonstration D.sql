@@ -5,14 +5,24 @@ USE TSQL;
 GO
 -- Step 2: Common Table Expressions
 -- -- Select this query and execute it to show CTE Examples
-WITH CTE_year AS
-	(
-	SELECT YEAR(orderdate) AS orderyear, custid
-	FROM Sales.Orders
-	)
+
+
 SELECT orderyear, COUNT(DISTINCT custid) AS cust_count
-FROM CTE_year
+FROM (	SELECT YEAR(orderdate) AS orderyear, custid
+	FROM Sales.Orders
+	) AS T1
+
 GROUP BY orderyear;
+
+
+with cte_year as
+	(
+	select year(orderdate) as orderyear, custid
+	from sales.orders
+	)
+select orderyear, count(distinct custid) as cust_count
+from cte_year
+group by orderyear;
 
 -- Step 3 (Optional) Recursive CTE (for demonstration at trainer's discretion)
 WITH EmpOrg_CTE AS

@@ -6,6 +6,9 @@ GO
 
 -- Step 2: Simple views
 -- Select and execute the following to create a simple view
+
+
+
 CREATE VIEW HR.EmpPhoneList
 AS
 SELECT empid, lastname, firstname, phone
